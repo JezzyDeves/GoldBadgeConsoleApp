@@ -17,5 +17,14 @@ namespace _02_Cafe_Repository
             bool wasAdded = (_menu.Count > startCount) ? true : false;
             return wasAdded;
         }
+        public bool DeleteMenuItem(Menu item)
+        {
+            bool deleteResult = _menu.Remove(item);
+            return deleteResult;
+        }
+        public List<Menu> GetMenuItems()
+        {
+            return _menu;
+        }
     }
 }
