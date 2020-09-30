@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _02_Cafe_Repository
 {
-    class MenuRepository
+    public class MenuRepository
     {
     }
 }
