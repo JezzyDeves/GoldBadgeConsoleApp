@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ABAC5B6D-587D-4371-A9B0-2B030528B298}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>_01_CafeChallenge</RootNamespace>
-    <AssemblyName>01_CafeChallenge</AssemblyName>
+    <ProjectGuid>{6FAF083D-0DBA-4266-B12C-74806E418C78}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProgramUI</RootNamespace>
+    <AssemblyName>ProgramUI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,22 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\02_Cafe_Repository\01_Cafe_Repository.csproj">
       <Project>{AD390FFA-4F5E-454A-8B1E-C54A2B2FDB55}</Project>
       <Name>01_Cafe_Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProgramUI\ProgramUI.csproj">
-      <Project>{6FAF083D-0DBA-4266-B12C-74806E418C78}</Project>
-      <Name>ProgramUI</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,7 +11,7 @@ namespace _01_CafeChallenge
     {
         static void Main(string[] args)
         {
-            ProgramUI ui = new ProgramUI();
+            UI.UI ui = new UI.UI();
             ui.Run();
         }
     }
