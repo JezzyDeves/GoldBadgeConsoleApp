@@ -1,2 +1,6 @@
 # GoldBadgeConsoleApp
-Gold Badge console application challenges for class
+This is my challenges for Gold Badge at Eleven Fifty
+##Checklist
+[x] Cafe
+[]Claims
+[]Badges
