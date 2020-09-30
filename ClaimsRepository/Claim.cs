@@ -15,7 +15,21 @@ namespace ClaimsRepository
         public double ClaimAmmount { get; set; }
         public DateTime DateOfIncident { get; set; }
         public DateTime DateOfClaim { get; set; }
-        public bool IsValid { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                var days = (DateOfClaim - DateOfIncident).TotalDays;
+                if(days <= 30)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         public Claim()
         {
