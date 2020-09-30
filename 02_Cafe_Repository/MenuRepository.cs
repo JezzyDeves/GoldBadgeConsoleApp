@@ -8,5 +8,14 @@ namespace _02_Cafe_Repository
 {
     public class MenuRepository
     {
+        private readonly List<Menu> _menu = new List<Menu>();
+
+        public bool AddMenuItem(Menu item)
+        {
+            int startCount = _menu.Count;
+            _menu.Add(item);
+            bool wasAdded = (_menu.Count > startCount) ? true : false;
+            return wasAdded;
+        }
     }
 }
