@@ -22,5 +22,9 @@ namespace _02_Cafe_Repository
             Ingredients = ingredients;
             Price = price;
         }
+        public Menu()
+        {
+
+        }
     }
 }

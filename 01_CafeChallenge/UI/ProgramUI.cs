@@ -44,7 +44,9 @@ namespace _01_CafeChallenge.UI
                         break;
                     case "2":
                         //Add an item
+                        Console.Clear();
                         Console.Beep();
+                        AddItemToMenu();
                         break;
                     case "3":
                         //Remove an item
@@ -59,13 +61,36 @@ namespace _01_CafeChallenge.UI
 
             foreach(Menu item in allItems)
             {
+                string listOfIngredients = string.Join(", ", item.Ingredients);
                 Console.WriteLine($"Name: {item.Name}\n" +
                     $"Description: {item.Description}\n" +
                     $"Meal Number: {item.MealNumber}\n" +
-                    $"Ingredients: {item.Ingredients}\n" +
+                    $"Ingredients: {listOfIngredients}\n" +
                     $"Price: ${item.Price}\n" +
                     $"-----------------");
             }
+        }
+        public void AddItemToMenu()
+        {
+            Menu newMenuItem = new Menu();
+            Console.WriteLine("Please enter a name:");
+            newMenuItem.Name = Console.ReadLine();
+            Console.WriteLine($"Please enter a description for {newMenuItem.Name}:");
+            newMenuItem.Description = Console.ReadLine();
+            Console.WriteLine($"Enter a menu number for {newMenuItem.Name}:");
+            newMenuItem.MealNumber = Int32.Parse(Console.ReadLine());
+            Console.WriteLine($"Enter an ingredients list for {newMenuItem.Name}\n" +
+                $"Each item must be seperated with a comma and the list must not have spaces:");
+            string ingredientsList = Console.ReadLine();
+            newMenuItem.Ingredients = ingredientsList.Split(',');
+            Console.WriteLine($"Please enter a price for {newMenuItem.Name}");
+            newMenuItem.Price = Double.Parse(Console.ReadLine());
+
+            Console.Clear();
+            _repo.AddMenuItem(newMenuItem);
+            Console.WriteLine($"{newMenuItem.Name} was added");
+            Console.WriteLine("Press any key to continue........");
+            Console.ReadKey();
         }
         public void SeedContent()
         {
