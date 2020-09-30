@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _02_Cafe_Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -33,6 +34,13 @@ namespace _01_CafeTests
             bool deleteResult = _repo.DeleteMenuItem(item);
 
             Assert.IsTrue(deleteResult);
+        }
+        [TestMethod]
+        public void GetMenuItems_ShouldReturnTrue()
+        {
+            List<Menu> menuItems = _repo.GetMenuItems();
+            bool listHasItems = menuItems.Contains(_item);
+            Assert.IsTrue(listHasItems);
         }
     }
 }
