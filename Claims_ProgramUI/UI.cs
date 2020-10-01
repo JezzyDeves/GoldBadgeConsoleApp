@@ -53,26 +53,13 @@ namespace Claims_ProgramUI
             Console.Clear();
             List<Claim> claims = _repo.GetAllClaims();
 
-            //Console.WriteLine("Claim ID\t" +
-            //    "Claim Type\t" +
-            //    "Description\t" +
-            //    "Ammount\t" +
-            //    "Incident Date\t" +
-            //    "Claim Date\t" +
-            //    "Valid");
-
             foreach(Claim claim in claims)
             {
-                //Console.WriteLine(string.Format($"{claim.ClaimID}\t" +
-                //    $"{claim.TypeOfClaim}\t" +
-                //    $"{claim.Description}\t" +
-                //    $"{claim.ClaimAmmount}\t" +
-                //    $"{claim.DateOfIncident}\t" +
-                //    $"{claim.DateOfClaim}\t" +
-                //    $"{claim.IsValid}"));
-                String s = String.Format("{0, -10} {1, -10} {2, -15} {3, -10}\n\n", "ID", "Type", "Description", "Ammount");
-                s += String.Format("{0, -10} {1, -10} {2, -15} {3, -10}\n", claim.ClaimID, claim.TypeOfClaim, claim.Description, claim.ClaimAmmount);
+                String s = String.Format("{0, -10} {1, -10} {2, -15} {3, -10} {4, -25} {5, -25} {6, -25}\n\n", "ID", "Type", "Description", "Ammount", "Incident Date", "Claim Date", "Valid");
+                s += String.Format("{0, -10} {1, -10} {2, -15} {3, -10} {4, -25} {5, -25} {6, -35}\n", claim.ClaimID, claim.TypeOfClaim, claim.Description, claim.ClaimAmmount, claim.DateOfIncident, claim.DateOfClaim, claim.IsValid);
                 Console.WriteLine($"\n{s}");
+                string end = new String('-', 120);
+                Console.WriteLine(end);
             }
 
             Console.ReadKey();
@@ -82,7 +69,12 @@ namespace Claims_ProgramUI
             DateTime claimDay = new DateTime(2000, 11, 11);
             DateTime incidentDay = new DateTime(2000, 11, 11);
             Claim claim1 = new Claim(1, ClaimType.Car, "Car broken", 400, incidentDay, claimDay);
+
+            DateTime claimDay2 = new DateTime(2005, 11, 11);
+            DateTime incidentDay2 = new DateTime(2005, 10, 11);
+            Claim claim2 = new Claim(2, ClaimType.Home, "Fire", 12000, incidentDay2, claimDay2);
             _repo.AddClaim(claim1);
+            _repo.AddClaim(claim2);
         }
     }
 }
