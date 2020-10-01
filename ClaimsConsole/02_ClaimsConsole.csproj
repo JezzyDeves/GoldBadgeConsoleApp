@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Claims_ProgramUI\02_Claims_ProgramUI.csproj">
+      <Project>{F33823A0-6818-4F80-852C-70E1F5F1B46A}</Project>
+      <Name>02_Claims_ProgramUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
