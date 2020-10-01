@@ -40,6 +40,7 @@ namespace Claims_ProgramUI
                         break;
                     case "3":
                         //Take care of claim
+                        HandleClaim();
                         break;
                     case "4":
                         //Exit
@@ -63,6 +64,33 @@ namespace Claims_ProgramUI
             }
 
             Console.ReadKey();
+        }
+        public void HandleClaim()
+        {
+            List<Claim> claims = _repo.GetAllClaims();
+            bool getNextItem = true;
+
+            while (getNextItem)
+            {
+                Console.WriteLine($"ID: {claims[0].ClaimID}");
+                Console.WriteLine($"Type: {claims[0].TypeOfClaim}");
+                Console.WriteLine($"Description: {claims[0].Description}");
+                Console.WriteLine($"Ammount: {claims[0].ClaimAmmount}");
+                Console.WriteLine($"Date of incident:{claims[0].DateOfIncident}");
+                Console.WriteLine($"Date of claim: {claims[0].DateOfClaim}");
+                Console.WriteLine($"Valid: {claims[0].IsValid}");
+
+                Console.WriteLine("Do you want to handle this claim y or n?");
+                string input = Console.ReadLine();
+                if(input == "y")
+                {
+                    _repo.RemoveClaim(claims[0]);
+                }
+                else
+                {
+                    getNextItem = false;
+                }
+            }
         }
         public void SeedContent()
         {
