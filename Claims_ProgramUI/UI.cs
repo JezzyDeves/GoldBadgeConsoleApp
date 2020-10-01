@@ -37,6 +37,7 @@ namespace Claims_ProgramUI
                         break;
                     case "2":
                         //Enter new claim
+                        AddClaim();
                         break;
                     case "3":
                         //Take care of claim
@@ -90,6 +91,53 @@ namespace Claims_ProgramUI
                 {
                     getNextItem = false;
                 }
+            }
+        }
+        public void AddClaim()
+        {
+            Claim claim = new Claim();
+            Console.WriteLine("Enter claim ID:");
+            claim.ClaimID = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter claim description:");
+            claim.Description = Console.ReadLine();
+            Console.WriteLine("Enter claim ammount:");
+            claim.ClaimAmmount = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter incident date (yyyy/mm/dd):");
+            //string date = Console.ReadLine();
+            claim.DateOfIncident = DateTime.ParseExact(Console.ReadLine(), "yyyy/MM/dd", null);
+            Console.WriteLine("Enter claim date (yyyy/mm/dd)");
+            claim.DateOfClaim = DateTime.ParseExact(Console.ReadLine(), "yyyy/MM/dd", null);
+            Console.WriteLine("What type of claim is this?\n" +
+                "1) Car\n" +
+                "2) Home\n" +
+                "3) Theft");
+            string type = Console.ReadLine();
+            switch (type)
+            {
+                case "1":
+                    claim.TypeOfClaim = ClaimType.Car;
+                    break;
+                case "2":
+                    claim.TypeOfClaim = ClaimType.Home;
+                    break;
+                case "3":
+                    claim.TypeOfClaim = ClaimType.Theft;
+                    break;
+            }
+
+            _repo.AddClaim(claim);
+            Console.WriteLine($"Claim added");
+            if(claim.IsValid == true)
+            {
+                Console.WriteLine("This claim is valid");
+                Console.WriteLine("Press any key to continue........");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("This claim is not valid");
+                Console.WriteLine("Press any key to continue........");
+                Console.ReadKey();
             }
         }
         public void SeedContent()
