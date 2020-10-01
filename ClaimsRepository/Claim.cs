@@ -19,7 +19,7 @@ namespace ClaimsRepository
         {
             get
             {
-                var days = (DateOfIncident - DateOfClaim).TotalDays;
+                var days = (DateOfClaim - DateOfIncident).TotalDays;
                 if(days <= 30)
                 {
                     return true;
