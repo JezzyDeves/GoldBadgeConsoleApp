@@ -38,5 +38,11 @@ namespace ClaimsTests
             bool list = claims.Contains(_item);
             Assert.IsTrue(list);
         }
+        [TestMethod]
+        public void RemoveClaim_ShouldReturnTrue()
+        {
+            bool removed = _repo.RemoveClaim(_item);
+            Assert.IsTrue(removed);
+        }
     }
 }

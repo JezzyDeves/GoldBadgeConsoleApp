@@ -21,5 +21,10 @@ namespace ClaimsRepository
             bool wasAdded = (_claims.Count > startCount) ? true : false;
             return wasAdded;
         }
+        public bool RemoveClaim(Claim claim)
+        {
+            bool removed = _claims.Remove(claim);
+            return removed;
+        }
     }
 }
