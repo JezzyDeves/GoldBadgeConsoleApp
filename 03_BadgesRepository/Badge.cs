@@ -14,10 +14,10 @@ namespace _03_BadgesRepository
         {
 
         }
-        public Badge(List<string> doors, int id)
+        public Badge(int id, List<string> doors)
         {
-            doors = BadgeDoors;
-            id = BadgeID;
+            BadgeDoors = doors;
+            BadgeID = id;
         }
     }
 }
