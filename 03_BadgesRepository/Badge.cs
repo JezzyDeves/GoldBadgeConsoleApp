@@ -8,5 +8,16 @@ namespace _03_BadgesRepository
 {
     public class Badge
     {
+        public int BadgeID { get; set; }
+        public List<string> BadgeDoors { get; set; }
+        public Badge()
+        {
+
+        }
+        public Badge(List<string> doors, int id)
+        {
+            doors = BadgeDoors;
+            id = BadgeID;
+        }
     }
 }
