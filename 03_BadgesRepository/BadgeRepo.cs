@@ -19,5 +19,25 @@ namespace _03_BadgesRepository
             bool added = _badges.ContainsKey(id);
             return added;
         }
+
+        public bool AddBadgeDoors(int id, string newDoor)
+        {
+            //id = badge.BadgeID;
+            //List<string> doors = badge.BadgeDoors;
+
+            //_badges[id].Add(newDoor);
+            //bool added = doors.Contains(newDoor);
+            //return added;
+
+            foreach(KeyValuePair<int, List<string>> valuePair in _badges)
+            {
+                if(id == valuePair.Key)
+                {
+                    valuePair.Value.Add(newDoor);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
