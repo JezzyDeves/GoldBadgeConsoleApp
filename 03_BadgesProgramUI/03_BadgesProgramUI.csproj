@@ -44,5 +44,11 @@
     <Compile Include="UI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\03_BadgesRepository\03_BadgesRepository.csproj">
+      <Project>{339EB815-7235-4897-8EE6-5AA6B1B5FD2F}</Project>
+      <Name>03_BadgesRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
