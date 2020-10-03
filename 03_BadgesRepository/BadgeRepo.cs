@@ -9,7 +9,10 @@ namespace _03_BadgesRepository
     public class BadgeRepo
     {
         private readonly Dictionary<int, List<string>> _badges = new Dictionary<int, List<string>>();
-
+        public Dictionary<int, List<string>> GetAllBadges()
+        {
+            return _badges;
+        }
         public bool AddBadge(Badge badge)
         {
             int id = badge.BadgeID;
@@ -22,13 +25,6 @@ namespace _03_BadgesRepository
 
         public bool AddBadgeDoors(int id, string newDoor)
         {
-            //id = badge.BadgeID;
-            //List<string> doors = badge.BadgeDoors;
-
-            //_badges[id].Add(newDoor);
-            //bool added = doors.Contains(newDoor);
-            //return added;
-
             foreach(KeyValuePair<int, List<string>> valuePair in _badges)
             {
                 if(id == valuePair.Key)
@@ -38,6 +34,21 @@ namespace _03_BadgesRepository
                 }
             }
             return false;
+        }
+        public bool RemoveBadgeDoors(int id, string door)
+        {
+            foreach(KeyValuePair<int, List<string>> valuePair in _badges)
+            {
+                if(id == valuePair.Key)
+                {
+                    valuePair.Value.Remove(door);
+                    if (valuePair.Value.Contains(door))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
