@@ -39,6 +39,7 @@ namespace _03_BadgesProgramUI
                         break;
                     case "3":
                         //Add new badge
+                        AddBadge();
                         break;
                     case "4":
                         continueToRun = false;
@@ -63,6 +64,36 @@ namespace _03_BadgesProgramUI
                 s += String.Format("{0, -5} {1, -10}\n", convertID, doors);
                 Console.WriteLine($"\n{s}");
             }
+            Console.WriteLine("Press any key to continue.......");
+            Console.ReadKey();
+        }
+        public void AddBadge()
+        {
+            Console.Clear();
+
+            Dictionary<int, List<string>> badges = _repo.GetAllBadges();
+            Badge badge = new Badge();
+            Console.WriteLine("Enter badge ID number:");
+            badge.BadgeID = int.Parse(Console.ReadLine());
+
+            foreach(KeyValuePair<int, List<string>> pair in badges)
+            {
+                if (badges.ContainsKey(badge.BadgeID))
+                {
+                    Console.WriteLine("This key already exists please retry");
+                    Console.WriteLine("Press any key to continue.......");
+                    Console.ReadKey();
+                    AddBadge();
+                }
+            }
+
+            Console.WriteLine("Enter doors for the badge\n" +
+                "Seperate each door name with a comma. DO NOT PUT A SPACE AFTER THE COMMA!");
+            string doors = Console.ReadLine();
+            badge.BadgeDoors = doors.Split(',').ToList();
+            _repo.AddBadge(badge);
+            Console.WriteLine($"Badge {badge.BadgeID} added");
+
             Console.WriteLine("Press any key to continue.......");
             Console.ReadKey();
         }
