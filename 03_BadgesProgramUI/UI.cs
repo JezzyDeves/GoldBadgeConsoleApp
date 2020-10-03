@@ -36,6 +36,7 @@ namespace _03_BadgesProgramUI
                         break;
                     case "2":
                         //Edit a badge
+                        EditBadge();
                         break;
                     case "3":
                         //Add new badge
@@ -56,7 +57,7 @@ namespace _03_BadgesProgramUI
         {
             Console.Clear();
             Dictionary<int, List<string>> badges = _repo.GetAllBadges();
-            foreach(KeyValuePair<int, List<string>> valuePair in badges)
+            foreach (KeyValuePair<int, List<string>> valuePair in badges)
             {
                 String s = String.Format("{0, -5} {1, -10}\n\n", "ID", "Doors");
                 string convertID = Convert.ToString(valuePair.Key);
@@ -76,7 +77,7 @@ namespace _03_BadgesProgramUI
             Console.WriteLine("Enter badge ID number:");
             badge.BadgeID = int.Parse(Console.ReadLine());
 
-            foreach(KeyValuePair<int, List<string>> pair in badges)
+            foreach (KeyValuePair<int, List<string>> pair in badges)
             {
                 if (badges.ContainsKey(badge.BadgeID))
                 {
@@ -96,6 +97,94 @@ namespace _03_BadgesProgramUI
 
             Console.WriteLine("Press any key to continue.......");
             Console.ReadKey();
+        }
+        public void EditBadge()
+        {
+            Console.Clear();
+
+            Console.WriteLine("What do you want to do?\n" +
+                "1) Add door to badge\n" +
+                "2) Remove door from badge");
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    Console.Clear();
+
+                    ListBadges();
+                    Console.WriteLine("Please enter the ID of the badge you wish to add to");
+                    string idToAddTo = Console.ReadLine();
+                    int idToAddToInt = int.Parse(idToAddTo);
+
+                    bool addDoors = true;
+                    while (addDoors)
+                    {
+                        Console.WriteLine("Enter the name of the door you want to add:");
+                        string newDoor = Console.ReadLine();
+
+                        _repo.AddBadgeDoors(idToAddToInt, newDoor);
+                        Console.WriteLine("Do you want to add another door(y/n)?");
+                        string keepAdding = Console.ReadLine();
+
+                        switch (keepAdding)
+                        {
+                            case "y":
+                                break;
+                            case "n":
+                                addDoors = false;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid option");
+                                Console.WriteLine("Press any key to continue.......");
+                                Console.ReadKey();
+                                addDoors = false;
+                                break;
+                        }
+                    }
+                    break;
+                case "2":
+                    Console.Clear();
+
+                    ListBadges();
+                    Console.WriteLine("Please enter the ID of the badge you wish to remove from");
+                    string idToRemoveFrom = Console.ReadLine();
+                    int idToRemoveFromInt = int.Parse(idToRemoveFrom);
+                    Dictionary<int, List<string>> badges = _repo.GetAllBadges();
+
+                    bool continueToRemove = true;
+
+                    while (continueToRemove)
+                    {
+                        string currentDoors = string.Join(", ", badges[idToRemoveFromInt]);
+                        Console.WriteLine($"{idToRemoveFrom} has access to these doors: {currentDoors}\n" +
+                            $"What do you want to remove?");
+                        string doorToRemove = Console.ReadLine();
+                        _repo.RemoveBadgeDoors(idToRemoveFromInt, doorToRemove);
+
+                        Console.WriteLine("Do you want to keep removing(y/n)?");
+                        string userInput = Console.ReadLine();
+                        switch (userInput)
+                        {
+                            case "y":
+                                break;
+                            case "n":
+                                continueToRemove = false;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid option");
+                                Console.WriteLine("Press any key to continue.......");
+                                Console.ReadKey();
+                                break;
+                        }
+                    }
+
+                    break;
+                default:
+                    Console.WriteLine("Invalid option");
+                    Console.WriteLine("Press any key to continue.......");
+                    Console.ReadKey();
+                    break;
+            }
         }
         public void SeedContent()
         {
