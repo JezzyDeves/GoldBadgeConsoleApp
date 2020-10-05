@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_BadgesProgramUI", "03_Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_BadgesTests", "03_BadgesTests\03_BadgesTests.csproj", "{67D8C45D-42A5-4DA9-A753-E2F28A2E000E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_CompanyOutings", "04_CompanyOutings", "{415D4DD6-7554-423E-9A4F-69446DB3D8A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_CompanyConsole", "04_CompanyConsole\04_CompanyConsole.csproj", "{6C8CA460-09C7-4F90-BE3F-E49A1719DEFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,10 @@ Global
 		{67D8C45D-42A5-4DA9-A753-E2F28A2E000E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67D8C45D-42A5-4DA9-A753-E2F28A2E000E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67D8C45D-42A5-4DA9-A753-E2F28A2E000E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8CA460-09C7-4F90-BE3F-E49A1719DEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8CA460-09C7-4F90-BE3F-E49A1719DEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8CA460-09C7-4F90-BE3F-E49A1719DEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8CA460-09C7-4F90-BE3F-E49A1719DEFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +112,7 @@ Global
 		{339EB815-7235-4897-8EE6-5AA6B1B5FD2F} = {75CD73D8-3631-42E1-9190-8BF22AE192A0}
 		{4B9DAF61-A0DA-4EC6-AF32-FB7639122496} = {75CD73D8-3631-42E1-9190-8BF22AE192A0}
 		{67D8C45D-42A5-4DA9-A753-E2F28A2E000E} = {75CD73D8-3631-42E1-9190-8BF22AE192A0}
+		{6C8CA460-09C7-4F90-BE3F-E49A1719DEFF} = {415D4DD6-7554-423E-9A4F-69446DB3D8A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4542C798-C23D-45DB-8615-88AC3269764E}
