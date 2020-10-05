@@ -71,7 +71,7 @@ namespace Claims_ProgramUI
             List<Claim> claims = _repo.GetAllClaims();
             bool getNextItem = true;
 
-            while (getNextItem)
+            while (getNextItem && claims.Any())
             {
                 Console.WriteLine($"ID: {claims[0].ClaimID}");
                 Console.WriteLine($"Type: {claims[0].TypeOfClaim}");
@@ -101,7 +101,7 @@ namespace Claims_ProgramUI
             Console.WriteLine("Enter claim description:");
             claim.Description = Console.ReadLine();
             Console.WriteLine("Enter claim ammount:");
-            claim.ClaimAmmount = int.Parse(Console.ReadLine());
+            claim.ClaimAmmount = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter incident date (yyyy/mm/dd):");
             //string date = Console.ReadLine();
             claim.DateOfIncident = DateTime.ParseExact(Console.ReadLine(), "yyyy/MM/dd", null);
