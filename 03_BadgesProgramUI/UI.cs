@@ -84,7 +84,8 @@ namespace _03_BadgesProgramUI
                     Console.WriteLine("This key already exists please retry");
                     Console.WriteLine("Press any key to continue.......");
                     Console.ReadKey();
-                    AddBadge();
+                    return;
+                    //AddBadge();
                 }
             }
 
@@ -104,7 +105,8 @@ namespace _03_BadgesProgramUI
 
             Console.WriteLine("What do you want to do?\n" +
                 "1) Add door to badge\n" +
-                "2) Remove door from badge");
+                "2) Remove door from badge\n" +
+                "3) Remove all doors from badge");
             string input = Console.ReadLine();
             switch (input)
             {
@@ -178,6 +180,23 @@ namespace _03_BadgesProgramUI
                         }
                     }
 
+                    break;
+                case "3":
+                    Console.Clear();
+
+                    ListBadges();
+                    Console.WriteLine("Please enter the ID of the badge you wish to remove from");
+                    string idToRemoveAllFrom = Console.ReadLine();
+                    int idToRemoveAllFromInt = int.Parse(idToRemoveAllFrom);
+                    Dictionary<int, List<string>> list = _repo.GetAllBadges();
+
+                    foreach (KeyValuePair<int, List<string>> pair in list)
+                    {
+                        if (idToRemoveAllFromInt == pair.Key)
+                        {
+                            pair.Value.Clear();
+                        }
+                    }
                     break;
                 default:
                     Console.WriteLine("Invalid option");
