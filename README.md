@@ -6,7 +6,7 @@ These are challenges for the end of Gold Badge at Eleven Fifty Academy. They are
 - [x] Cafe
 - [x] Claims
 - [x] Badges
-- [ ] Company Outings [Check Experimental branch](https://github.com/JezzyDeves/GoldBadgeConsoleApp/tree/Experimental)
+- [x] Company Outings
 ## Screenshots
 ![](https://github.com/JezzyDeves/GoldBadgeConsoleApp/blob/master/img/badges.png)
 ![](https://github.com/JezzyDeves/GoldBadgeConsoleApp/blob/master/img/cafe.png)
