@@ -54,6 +54,7 @@ namespace _04_CompanyTests
             Outing outing = new Outing(EventType.Golf, 100, dateTime, 15.45, 2000);
             _repo.AddOuting(outing);
             double getCost = _repo.GetCostByType(EventType.Golf);
+            Assert.AreEqual(getCost, 4000);
             Console.WriteLine(getCost);
         }
     }

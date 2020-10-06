@@ -38,17 +38,14 @@ namespace _04_CompanyRepository
         }
         public double GetCostByType(EventType type)
         {
+            double result = 0;
             foreach (Outing outing in _repo)
             {
                 if (outing.TypeOfEvent == type)
                 {
-                    double cost = outing.CostTotal;
-                    double total = 0;
-                    double add = total + cost;
-                    return add;
+                    result += outing.CostTotal;
                 }
             }
-            double result = 0;
             return result;
         }
     }

@@ -44,5 +44,11 @@
     <Compile Include="UI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\04_CompanyRepository\04_CompanyRepository.csproj">
+      <Project>{406F0B99-A8F0-45A3-A317-5AF1CFC7A80A}</Project>
+      <Name>04_CompanyRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

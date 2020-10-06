@@ -37,7 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_CompanyOutings", "04_Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_CompanyConsole", "04_CompanyConsole\04_CompanyConsole.csproj", "{6C8CA460-09C7-4F90-BE3F-E49A1719DEFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_CompanyUI", "04_CompanyUI\04_CompanyUI.csproj", "{C8D31D8B-9E0F-47AA-B332-A157E958D888}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_CompanyProgramUI", "04_CompanyUI\04_CompanyProgramUI.csproj", "{C8D31D8B-9E0F-47AA-B332-A157E958D888}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_CompanyTests", "04_CompanyTests\04_CompanyTests.csproj", "{AB4F7F4F-8192-43D2-8EDE-23D66AD81CB0}"
 EndProject

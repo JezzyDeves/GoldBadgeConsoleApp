@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\04_CompanyUI\04_CompanyProgramUI.csproj">
+      <Project>{C8D31D8B-9E0F-47AA-B332-A157E958D888}</Project>
+      <Name>04_CompanyProgramUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

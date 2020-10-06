@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _04_CompanyUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace _04_CompanyConsole
     {
         static void Main(string[] args)
         {
+            UI ui = new UI();
+            ui.Run();
         }
     }
 }
