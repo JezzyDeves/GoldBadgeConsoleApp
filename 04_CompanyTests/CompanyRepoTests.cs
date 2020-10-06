@@ -34,5 +34,12 @@ namespace _04_CompanyTests
             bool containsItem = outings.Contains(_outing);
             Assert.IsTrue(containsItem);
         }
+        [TestMethod]
+        public void GetTotal_ShouldReturnCorrectValue()
+        {
+            double total = _repo.TotalCost();
+            Assert.AreEqual(total, 2000);
+            Console.WriteLine(total);
+        }
     }
 }

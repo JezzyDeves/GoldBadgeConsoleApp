@@ -21,5 +21,17 @@ namespace _04_CompanyRepository
         {
             return _repo;
         }
+        public double TotalCost()
+        {
+            foreach(Outing outing in _repo)
+            {
+                double cost = outing.CostTotal;
+                double total = 0;
+                double add = total + cost;
+                return add;
+            }
+            double result = 0;
+            return result;
+        }
     }
 }
