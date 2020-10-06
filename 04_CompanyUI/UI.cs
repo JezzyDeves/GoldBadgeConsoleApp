@@ -25,7 +25,7 @@ namespace _04_CompanyUI
                 Console.WriteLine("What do you want to do?\n" +
                     "1) Show all outings\n" +
                     "2) Add outing\n" +
-                    "3) Display outings based on type\n" +
+                    "3) Calculate costs\n" +
                     "4) Exit");
                 string input = Console.ReadLine();
 
@@ -40,7 +40,23 @@ namespace _04_CompanyUI
                         AddOuting();
                         break;
                     case "3":
-                        //Show cost by type
+                        //Show costs
+                        Console.Clear();
+                        Console.WriteLine("1) Show total costs of all events\n" +
+                            "2) Show total costs for event type");
+                        switch (Console.ReadLine())
+                        {
+                            case "1":
+                                TotalCosts();
+                                Console.WriteLine("Press any key to continue.......");
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                TotalCosts_Type();
+                                Console.WriteLine("Press any key to continue.......");
+                                Console.ReadKey();
+                                break;
+                        }
                         break;
                     case "4":
                         continueToRun = false;
@@ -58,8 +74,8 @@ namespace _04_CompanyUI
                 Console.WriteLine($"Type: {outing.TypeOfEvent}\n" +
                     $"People: {outing.People}\n" +
                     $"Date: {outing.Date}\n" +
-                    $"Cost per person: {outing.CostPerson}\n" +
-                    $"Total cost: {outing.CostTotal}\n\n");
+                    $"Cost per person: ${outing.CostPerson}\n" +
+                    $"Total cost: ${outing.CostTotal}\n\n");
             }
             Console.WriteLine("Press any key to continue.......");
             Console.ReadKey();
@@ -103,6 +119,42 @@ namespace _04_CompanyUI
             Console.WriteLine("Enter the total cost:");
             outing.CostTotal = Convert.ToDouble(Console.ReadLine());
             _repo.AddOuting(outing);
+        }
+        public void TotalCosts()
+        {
+            Console.Clear();
+
+            double total = _repo.TotalCost();
+            Console.WriteLine($"${total}");
+        }
+        public void TotalCosts_Type()
+        {
+            Console.Clear();
+
+            Console.WriteLine("1) Golf\n" +
+                "2) Bowling\n" +
+                "3) Amusement Park\n" +
+                "4) Concert");
+            EventType eventType = EventType.Golf;
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    eventType = EventType.Golf;
+                    break;
+                case "2":
+                    eventType = EventType.Bowling;
+                    break;
+                case "3":
+                    eventType = EventType.AmusementPark;
+                    break;
+                case "4":
+                    eventType = EventType.Concert;
+                    break;
+            }
+
+            double total = _repo.GetCostByType(eventType);
+            Console.WriteLine($"${total}");
         }
         public void SeedContent()
         {
