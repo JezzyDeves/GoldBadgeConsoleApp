@@ -8,7 +8,7 @@ namespace _04_CompanyRepository
 {
     public class CompanyRepo
     {
-        private readonly List<Outing> _repo = new List<Outing>();
+        List<Outing> _repo = new List<Outing>();
 
         public bool AddOuting(Outing outing)
         {
@@ -21,14 +21,32 @@ namespace _04_CompanyRepository
         {
             return _repo;
         }
+        public void Test()
+        {
+            int y = 0;
+            int x = 15;
+            y = y + x;
+        }
         public double TotalCost()
         {
+            double total = 0;
             foreach(Outing outing in _repo)
             {
-                double cost = outing.CostTotal;
-                double total = 0;
-                double add = total + cost;
-                return add;
+                total += outing.CostTotal;
+            }
+            return total;
+        }
+        public double GetCostByType(EventType type)
+        {
+            foreach (Outing outing in _repo)
+            {
+                if (outing.TypeOfEvent == type)
+                {
+                    double cost = outing.CostTotal;
+                    double total = 0;
+                    double add = total + cost;
+                    return add;
+                }
             }
             double result = 0;
             return result;

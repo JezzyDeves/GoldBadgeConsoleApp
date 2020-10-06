@@ -37,9 +37,24 @@ namespace _04_CompanyTests
         [TestMethod]
         public void GetTotal_ShouldReturnCorrectValue()
         {
+            DateTime dateTime = new DateTime(2000, 12, 12);
+            Outing outing = new Outing(EventType.Golf, 100, dateTime, 15.45, 2000);
+            DateTime dateTime1 = new DateTime(2000, 12, 12);
+            Outing outing1 = new Outing(EventType.Golf, 100, dateTime, 15.45, 2000);
+            _repo.AddOuting(outing);
+            _repo.AddOuting(outing1);
             double total = _repo.TotalCost();
-            Assert.AreEqual(total, 2000);
+            Assert.AreEqual(total, 6000);
             Console.WriteLine(total);
+        }
+        [TestMethod]
+        public void GetCostByType_ShouldReturnCorrectValue()
+        {
+            DateTime dateTime = new DateTime(2000, 12, 12);
+            Outing outing = new Outing(EventType.Golf, 100, dateTime, 15.45, 2000);
+            _repo.AddOuting(outing);
+            double getCost = _repo.GetCostByType(EventType.Golf);
+            Console.WriteLine(getCost);
         }
     }
 }
