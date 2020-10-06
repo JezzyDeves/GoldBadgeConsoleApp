@@ -8,5 +8,18 @@ namespace _04_CompanyRepository
 {
     public class CompanyRepo
     {
+        private readonly List<Outing> _repo = new List<Outing>();
+
+        public bool AddOuting(Outing outing)
+        {
+            int startCount = _repo.Count;
+            _repo.Add(outing);
+            bool wasAdded = (_repo.Count > startCount) ? true : false;
+            return wasAdded;
+        }
+        public List<Outing> GetOutings()
+        {
+            return _repo;
+        }
     }
 }
